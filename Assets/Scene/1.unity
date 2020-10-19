@@ -174,11 +174,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 904432905, guid: 07b9b3fe18322634a9ee5eb4a569d798, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -4925969714678911907, guid: ac7feac08ba5cc94285b8c090d0aba36,
-        type: 3}
     - target: {fileID: 38166038221803589, guid: 07b9b3fe18322634a9ee5eb4a569d798,
         type: 3}
       propertyPath: m_Name
@@ -257,7 +252,7 @@ GameObject:
   - component: {fileID: 940036980}
   - component: {fileID: 940036981}
   - component: {fileID: 940036982}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,38 +379,6 @@ Transform:
   m_Father: {fileID: 1544793665}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1105252828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 904432903, guid: 07b9b3fe18322634a9ee5eb4a569d798,
-    type: 3}
-  m_PrefabInstance: {fileID: 604755759}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1105252831
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105252828}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.3, y: 0.8}
-    newSize: {x: 0.3, y: 0.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.8}
-  m_EdgeRadius: 0
 --- !u!1 &1168495942
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +679,7 @@ GameObject:
   - component: {fileID: 1551926890}
   - component: {fileID: 1551926892}
   - component: {fileID: 1551926891}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap HighGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +796,7 @@ GameObject:
   - component: {fileID: 1841817871}
   - component: {fileID: 1841817873}
   - component: {fileID: 1841817872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12738,7 +12701,7 @@ GameObject:
   - component: {fileID: 2036384125}
   - component: {fileID: 2036384124}
   - component: {fileID: 2036384123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14658,7 +14621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050771247}
   - component: {fileID: 2050771246}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 904432904}
   - component: {fileID: 904432905}
-  m_Layer: 0
+  - component: {fileID: 1105252831}
+  m_Layer: 11
   m_Name: knight iso char_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -4437071881994959361, guid: ac7feac08ba5cc94285b8c090d0aba36,
+  m_Sprite: {fileID: -4925969714678911907, guid: ac7feac08ba5cc94285b8c090d0aba36,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,6 +83,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1105252831
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904432903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.3, y: 0.8}
+    newSize: {x: 0.3, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.8}
+  m_EdgeRadius: 0
 --- !u!1 &38166038221803589
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +121,7 @@ GameObject:
   - component: {fileID: 38166038221803595}
   - component: {fileID: 38166038221803594}
   - component: {fileID: 38166038221803598}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
