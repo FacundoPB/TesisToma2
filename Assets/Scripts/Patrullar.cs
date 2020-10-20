@@ -4,74 +4,43 @@ using UnityEngine;
 
 public class Patrullar : MonoBehaviour
 {
+    public bool IsPatrolling = true;
 
     public Transform[] waypoints;
-    private int idx;
+    private int currentWaypoint;
     public float velocidad;
     public float espera;
     private Coroutine vigilarCorrutina;
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        StartCoroutine(PatrollingRoutine());
     }
-   
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator PatrollingRoutine()
     {
-        if (vigilarCorrutina == null)
+        do
         {
-            vigilarCorrutina = StartCoroutine(Vigilar());
-        }
-        
+            var toWaypoint = waypoints[currentWaypoint].position - transform.position;
+            var directionToWaypoint = toWaypoint.normalized;
 
-    }
-    IEnumerator Vigilar()
-    {
-        Debug.Log("1");
-        if (waypoints[idx].position != transform.position)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(waypoints[idx].position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, velocidad * Time.deltaTime);
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[idx].position, velocidad * Time.deltaTime);
-            //yield return new WaitForSeconds(espera);
-            
-            Debug.Log("2");
-        }
-        else
-        {
-            //idx++;
-            Debug.Log("3");
-            if (idx < waypoints.Length - 1)
+            if (toWaypoint.sqrMagnitude > .1f)
             {
-                for (int i = 0; i < waypoints.Length; i++)
-                {
-                    Transform tmp = waypoints[i];
-                    int r = Random.Range(i, waypoints.Length);
-                    waypoints[i] = waypoints[r];
-                    waypoints[r] = tmp;
-
-                    yield return new WaitForSeconds(espera);
-                    vigilarCorrutina = null;
-
-                }
-
+                Quaternion targetRotation = Quaternion.LookRotation(directionToWaypoint);
+                //TODO: Unity 2D look at target C#
+                // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, velocidad * Time.deltaTime);
+                transform.position =
+                    Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position,
+                        velocidad * Time.deltaTime);
+                yield return null;
             }
             else
             {
-                idx = 0;
-                Debug.Log("4");
+                yield return new WaitForSeconds(espera);
+
+                if (++currentWaypoint == waypoints.Length)
+                    currentWaypoint = 0;
             }
-            
-
-        }
-
-        //yield return new WaitForSeconds(espera);
-
-
-
+        } while (IsPatrolling);
     }
 }
-
-
