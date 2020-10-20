@@ -29,6 +29,11 @@ public class Patrullar : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(directionToWaypoint);
                 //TODO: Unity 2D look at target C#
                 // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, velocidad * Time.deltaTime);
+
+                Vector3 dir = waypoints[currentWaypoint].position - transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
                 transform.position =
                     Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position,
                         velocidad * Time.deltaTime);

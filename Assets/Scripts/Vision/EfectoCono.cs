@@ -74,6 +74,8 @@ public class EfectoCono : MonoBehaviour
         mesh.uv = uv;
         mesh.triangles = triangles;
         mesh.bounds = new Bounds(transform.position, Vector3.one * 1000f);
+
+        
     }
 
     private static Vector3 GetVectorFromAngle(float angle)
