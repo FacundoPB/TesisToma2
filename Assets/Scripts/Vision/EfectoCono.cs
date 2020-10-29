@@ -22,11 +22,12 @@ public class EfectoCono : MonoBehaviour
         mesh = new Mesh();
         filter.mesh = mesh;
 
-        startingAngle = GetAngleFromVectorFloat(transform.right) + fov / 2f;
+        //startingAngle = GetAngleFromVectorFloat(transform.right) + fov / 2f;
     }
 
     private void LateUpdate()
     {
+        startingAngle = GetAngleFromVectorFloat(transform.right) + fov / 2f;
         float angle = startingAngle;
         float angleIncrease = fov / rayCount;
 

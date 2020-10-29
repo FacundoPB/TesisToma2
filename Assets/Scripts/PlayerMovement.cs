@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        //worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
         //mousePos = cam.ScreenToViewportPoint(Input.mousePosition);
 
 
@@ -38,14 +38,14 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rbPlayer.MovePosition(rbPlayer.position + movement * moveSpeed * Time.fixedDeltaTime);
-
+        /*
         Vector2 lookDir = worldPos - rbPlayer.position;
         float angle = Mathf.Atan2(lookDir.y,lookDir.x)*Mathf.Rad2Deg-90f;
         rbPlayer.rotation = angle;
         
         //transform.rotation = Quaternion.LookRotation(lookDir);
         
-
+        */
 
     }
    /* public void PlayerTakeDamage(int enemyDamage)

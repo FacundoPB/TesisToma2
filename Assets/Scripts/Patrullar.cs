@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Patrullar : MonoBehaviour
 {
@@ -11,10 +12,55 @@ public class Patrullar : MonoBehaviour
     public float velocidad;
     public float espera;
     private Coroutine vigilarCorrutina;
+    //View
+    public Light2D pointlight;
+    public float viewDistance;
+    public float viewAngle;
+    public Transform player;
+    public LayerMask viewMask;
+    Color originalPointlightColor;
+
 
     void Start()
     {
+        //View  player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        viewAngle = pointlight.pointLightInnerAngle;
+        originalPointlightColor = pointlight.color;
+
         StartCoroutine(PatrollingRoutine());
+    }
+
+    private void Update()
+    {
+        if (CanseePlayer())
+        {
+            pointlight.color = Color.red;
+        }
+        else
+        {
+            pointlight.color = originalPointlightColor;
+        }
+    }
+
+
+    bool CanseePlayer()
+    {
+
+        if (Vector2.Distance(transform.position, player.position) < viewDistance)
+        {
+            Vector2 dirToPlayer = (player.position - transform.position).normalized;
+            float angleBetweenGuardAndPlayer = Vector2.Angle(transform.right, dirToPlayer);
+            if (angleBetweenGuardAndPlayer < viewAngle / 2f)
+            {
+                if (!Physics.Linecast(transform.position, player.position, viewMask))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
     }
 
     IEnumerator PatrollingRoutine()
@@ -48,4 +94,12 @@ public class Patrullar : MonoBehaviour
             }
         } while (IsPatrolling);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.right * viewDistance);
+    }
+
+
 }
